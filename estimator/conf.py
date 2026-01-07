@@ -16,6 +16,9 @@ red_cost_model_classical_poly_space = RC.ABLR21
 red_shape_model = "gsa"
 red_simulator = GSA
 
+# Upper bound on blocksize, for security levels of at most 512 bits.
+max_beta = 1754
+
 mitm_opt = "analytical"
 max_n_cache = 10000
 
