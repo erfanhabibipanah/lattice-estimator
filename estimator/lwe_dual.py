@@ -654,7 +654,6 @@ class MATZOV:
         for p in early_abort_range(2, params.q):
             for k_enum in early_abort_range(0, params.n, 10):
                 for k_fft in early_abort_range(0, params.n - k_enum[0], 10):
-                    # We set max_beta_global to 1754, as RC.ADPS16(1754, 1754) ~ 2^(512)
                     with local_minimum(40, min(params.n, max_beta_global), log_level=log_level + 4) as it:
                         for beta in it:
                             cost = self.cost(

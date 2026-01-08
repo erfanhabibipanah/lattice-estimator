@@ -231,8 +231,9 @@ class PrimalUSVP:
         else:
             m = params.m
         if red_shape_model == "gsa":
-            max_beta = max(min(max_beta_global, m), 45)
-            with local_minimum(40, max_beta, precision=5) as it:
+            precision = 5
+            max_beta = max(min(max_beta_global, m), 40 + precision)
+            with local_minimum(40, max_beta, precision=precision) as it:
                 for beta in it:
                     cost = self.cost_gsa(
                         beta=beta, params=params, m=m, red_cost_model=red_cost_model, **kwds
@@ -600,8 +601,9 @@ class PrimalHybrid:
         )
 
         # step 1. optimize β
+        precision = 2
         with local_minimum(
-            40, baseline_cost["beta"] + 2, precision=2, log_level=log_level + 1
+            40, baseline_cost["beta"] + precision, precision=precision, log_level=log_level + 1
         ) as it:
             for beta in it:
                 it.update(f(beta))

@@ -17,6 +17,7 @@ red_shape_model = "gsa"
 red_simulator = GSA
 
 # Upper bound on blocksize, for security levels of at most 512 bits.
+# This value is selected as RC.ADPS16(1754, 1754) ~ 2^(512)
 max_beta = 1754
 
 mitm_opt = "analytical"
